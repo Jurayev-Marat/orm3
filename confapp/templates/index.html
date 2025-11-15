@@ -1,0 +1,560 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <title>Polk - Interior Design</title>
+   <meta name="keywords" content="interior design, home design, architecture, furniture design">
+   <meta name="description" content="Professional interior design services for home, office and furniture">
+   <meta name="author" content="Polk">
+
+   <!-- bootstrap css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+   <!-- style css -->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+   <!-- Responsive-->
+   <link rel="stylesheet" type="text/css" href="{% static 'css/responsive.css' %}">
+   <!-- fevicon -->
+   <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+   <!-- fonts -->
+   <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet">
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="{% static 'css/jquery.mCustomScrollbar.min.css' %}">
+   <!-- Tweaks for older IEs-->
+   <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+</head>
+
+<body>
+   <div class="header_section">
+      <div class="container-fluid">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="{% url 'home' %}">
+               <img src="{% static 'images/logo.png' %}" alt="Polk Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+               aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+               <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item active">
+                     <a class="nav-link" href="{% url 'home' %}">Home</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'about' %}">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'design' %}">Design</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'company' %}">Company</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'news' %}">News</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link" href="{% url 'contact' %}">Contact Us</a>
+                  </li>
+               </ul>
+               <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'search' %}">
+                  {% csrf_token %}
+                  <div class="form-group has-search">
+                     <input type="text" class="form-control" placeholder="Search" name="q">
+                     <span class="fa fa-search form-control-feedback"></span>
+                  </div>
+               </form>
+            </div>
+         </nav>
+      </div>
+   </div>
+   <!-- header section end -->
+
+   <!-- banner section start -->
+   <div class="banner_section layout_padding">
+      <div class="container-fluid">
+         <div id="main_slider" class="carousel slide" data-ride="carousel">
+            <div class="carousel-inner">
+               <div class="carousel-item active">
+                  <div class="row">
+                     <div class="col-sm-2">
+                        <h1 class="banner_taital">Design For <span style="color: #343535;">Your House</span></h1>
+                        <p class="banner_text">Transform your space with our expert interior design services</p>
+                        <div class="read_bt"><a href="{% url 'design' %}">Get Started</a></div>
+                     </div>
+                     <div class="col-sm-10">
+                        <div class="images_main">
+                           <div class="banner_img">
+                              <img src="{% static 'images/banner-img1.png' %}" alt="Modern Interior Design">
+                           </div>
+                           <div class="banner_img">
+                              <img src="{% static 'images/banner-img2.png' %}" alt="Luxury Interior Design">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="carousel-item">
+                  <div class="row">
+                     <div class="col-sm-2">
+                        <h1 class="banner_taital">Create Your <span style="color: #343535;">Dream Space</span></h1>
+                        <p class="banner_text">Professional design solutions for homes and offices</p>
+                        <div class="read_bt"><a href="{% url 'contact' %}">Contact Us</a></div>
+                     </div>
+                     <div class="col-sm-10">
+                        <div class="images_main">
+                           <div class="banner_img">
+                              <img src="{% static 'images/banner-img1.png' %}" alt="Office Design">
+                           </div>
+                           <div class="banner_img">
+                              <img src="{% static 'images/banner-img2.png' %}" alt="Home Design">
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <a class="carousel-control-prev" href="#main_slider" role="button" data-slide="prev">
+               <i class="fa fa-arrow-left" aria-hidden="true"></i>
+               <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#main_slider" role="button" data-slide="next">
+               <i class="fa fa-arrow-right" aria-hidden="true"></i>
+               <span class="sr-only">Next</span>
+            </a>
+         </div>
+      </div>
+   </div>
+   <!-- banner section end -->
+
+   <!-- about section start -->
+   <div class="about_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-6">
+               <div class="about_taital">About <span style="color: #f7f6f6;">Company</span></div>
+               <p class="about_text">Welcome to Polk Interior Design, where we transform spaces into beautiful, functional environments. With years of experience in the industry, we specialize in creating customized design solutions for homes, offices, and commercial spaces.</p>
+               <p class="about_text">Our team of talented designers works closely with clients to understand their vision and bring it to life through innovative design concepts and attention to detail.</p>
+               <div class="read_bt"><a href="{% url 'about' %}">Read More</a></div>
+            </div>
+            <div class="col-md-6">
+               <div class="about_img">
+                  <img src="{% static 'images/about-img.png' %}" alt="About Polk Interior Design">
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- about section end -->
+
+   <!-- design section start -->
+   <div class="design_section layout_padding">
+      <div class="container">
+         <h1 class="design_taital">Our Interior <span style="color: #f3f3f3;">Design Work</span></h1>
+         <p class="design_text">Explore our portfolio of stunning interior design projects that showcase our creativity and expertise.</p>
+         <div class="design_section_2">
+            <div class="design_section_main">
+               <div class="row">
+                  <div class="col-md-4">
+                     <div class="container_main">
+                        <img src="{% static 'images/img-1.png' %}" alt="Modern Living Room Design" class="image">
+                        <div class="overlay">
+                           <div class="text">
+                              <h4 class="jony_text">Modern Living Room</h4>
+                              <p class="some_text">Contemporary design with clean lines and minimalist aesthetic for modern homes</p>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="{% url 'design' %}">View Project</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+
+                  <div class="col-md-4">
+                     <div class="container_main">
+                        <img src="{% static 'images/img-2.png' %}" alt="Office Space Design" class="image">
+                        <div class="overlay">
+                           <div class="text">
+                              <h4 class="jony_text">Office Design</h4>
+                              <p class="some_text">Productive workspace with ergonomic design and modern furniture solutions</p>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="{% url 'design' %}">View Project</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="container_main margin_top_30">
+                        <img src="{% static 'images/img-3.png' %}" alt="Restaurant Interior" class="image">
+                        <div class="overlay">
+                           <div class="text">
+                              <h4 class="jony_text">Restaurant Design</h4>
+                              <p class="some_text">Warm and inviting restaurant atmosphere with custom lighting solutions</p>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="{% url 'design' %}">View Project</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-4">
+                     <div class="container_main">
+                        <img src="{% static 'images/img-4.png' %}" alt="Luxury Bedroom Design" class="image">
+                        <div class="overlay">
+                           <div class="text">
+                              <h4 class="jony_text">Luxury Bedroom</h4>
+                              <p class="some_text">Elegant bedroom design with premium materials and custom furniture</p>
+                              <div class="btn_main">
+                                 <div class="buy_bt"><a href="{% url 'design' %}">View Project</a></div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="read_bt"><a href="{% url 'design' %}">See More Projects</a></div>
+      </div>
+   </div>
+   <!-- design section end -->
+
+   <!-- company section start -->
+   <div class="company_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h1 class="company_taital">Our <span style="color: #fcfafa;">Services</span></h1>
+               <p class="company_text">Comprehensive interior design solutions for every space and style</p>
+            </div>
+         </div>
+         <div class="company_section_2">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="company_img">
+                     <img src="{% static 'images/company-img1.png' %}" alt="Home Design Services">
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <h3 class="home_text">Home <span style="color: #f3f3f3;">Design</span></h3>
+                  <p class="lorem_text">Transform your living space with our expert home design services. We create beautiful, functional homes that reflect your personality and lifestyle. From living rooms to bedrooms, kitchens to bathrooms, we handle every aspect of your home's interior design.</p>
+                  <div class="seemore_bt"><a href="{% url 'design' %}">Explore Home Designs</a></div>
+               </div>
+            </div>
+         </div>
+         <div class="company_section_3">
+            <div class="row">
+               <div class="col-md-6">
+                  <h3 class="home_text">Office <span style="color: #f3f3f3;">Design</span></h3>
+                  <p class="lorem_text">Create productive and inspiring work environments with our office design services. We specialize in designing functional workspaces that boost productivity and reflect your company's brand identity. From small startups to large corporations, we deliver exceptional results.</p>
+                  <div class="seemore_bt"><a href="{% url 'design' %}">Explore Office Designs</a></div>
+               </div>
+               <div class="col-md-6">
+                  <div class="company_img">
+                     <img src="{% static 'images/company-img2.png' %}" alt="Office Design Services">
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="company_section_2">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="company_img">
+                     <img src="{% static 'images/company-img3.png' %}" alt="Furniture Design Services">
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <h3 class="home_text">Furniture <span style="color: #f3f3f3;">Design</span></h3>
+                  <p class="lorem_text">Custom furniture design solutions that perfectly fit your space and style. We create unique, high-quality furniture pieces that combine functionality with aesthetic appeal. From custom sofas to built-in storage solutions, we bring your furniture vision to life.</p>
+                  <div class="seemore_bt"><a href="{% url 'design' %}">Explore Furniture</a></div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- company section end -->
+
+   <!-- client section start -->
+   <div class="client_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="client_taital">Clients <span style="color: #2ea0f8;">Testimonials</span></h3>
+            </div>
+         </div>
+         <div class="client_section_2">
+            <div id="my_slider" class="carousel slide" data-ride="carousel">
+               <div class="carousel-inner">
+                  <div class="carousel-item active">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="client_taital_main">
+                              <div class="client_left">
+                                 <div class="client_img">
+                                    <img src="{% static 'images/client-img1.png' %}" alt="Sarah Johnson">
+                                 </div>
+                              </div>
+                              <div class="client_right">
+                                 <h3 class="moark_text">Sarah Johnson</h3>
+                                 <p class="client_text">"Polk transformed our entire home beyond expectations! Their attention to detail and creative solutions made our space both beautiful and functional. Highly recommended!"</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="client_taital_main">
+                              <div class="client_left">
+                                 <div class="client_img">
+                                    <img src="{% static 'images/client-img2.png' %}" alt="Mike Chen">
+                                 </div>
+                              </div>
+                              <div class="client_right">
+                                 <h3 class="moark_text">Mike Chen</h3>
+                                 <p class="client_text">"The office design they created for our company has significantly improved our team's productivity and morale. Professional service from start to finish!"</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="carousel-item">
+                     <div class="row">
+                        <div class="col-md-6">
+                           <div class="client_taital_main">
+                              <div class="client_left">
+                                 <div class="client_img">
+                                    <img src="{% static 'images/client-img1.png' %}" alt="Emily Davis">
+                                 </div>
+                              </div>
+                              <div class="client_right">
+                                 <h3 class="moark_text">Emily Davis</h3>
+                                 <p class="client_text">"I'm amazed by how they transformed my small apartment into a spacious and stylish home. Every inch is perfectly utilized with smart design solutions."</p>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-md-6">
+                           <div class="client_taital_main">
+                              <div class="client_left">
+                                 <div class="client_img">
+                                    <img src="{% static 'images/client-img2.png' %}" alt="David Wilson">
+                                 </div>
+                              </div>
+                              <div class="client_right">
+                                 <h3 class="moark_text">David Wilson</h3>
+                                 <p class="client_text">"The furniture pieces they designed for our restaurant are not only beautiful but also incredibly durable. Our customers constantly compliment the ambiance!"</p>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+                  <i class="fa fa-angle-left" aria-hidden="true"></i>
+                  <span class="sr-only">Previous</span>
+               </a>
+               <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+                  <i class="fa fa-angle-right" aria-hidden="true"></i>
+                  <span class="sr-only">Next</span>
+               </a>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- client section end -->
+
+   <!-- news section start -->
+   <div class="news_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-md-12">
+               <h3 class="news_taital">Latest <span style="color: #fefefd;">News</span></h3>
+            </div>
+         </div>
+      </div>
+      <div class="news_section_2">
+         <div class="container">
+            <div class="row">
+               <div class="col-md-6">
+                  <div class="news_img">
+                     <img src="{% static 'images/news-img.png' %}" alt="Interior Design Trends 2024">
+                  </div>
+               </div>
+               <div class="col-md-6">
+                  <div class="news_taita_main">
+                     <h3 class="news_taital_1">Top Interior Design Trends for 2024</h3>
+                     <p class="news_text">Discover the latest trends shaping interior design in 2024. From sustainable materials and biophilic design to smart home integration and bold color choices, learn what's hot in the world of interior decoration and how you can incorporate these trends into your space.</p>
+                     <p class="news_text">Our experts share insights on emerging styles, materials, and technologies that are transforming living and working spaces.</p>
+                     <div class="readmore_bt"><a href="{% url 'news' %}">Read More News</a></div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- news section end -->
+
+   <!-- contact section start -->
+   <div class="contact_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-sm-12">
+               <h3 class="contact_taital">Ready to Transform <span style="color: #fefefd;">Your Space?</span></h3>
+               <p class="contact_text">Contact us today for a free consultation and let's create something amazing together!</p>
+            </div>
+         </div>
+         <div class="contact_section_2">
+            <div class="row">
+               <div class="col-md-6">
+                  <form class="mail_section_1" method="post" action="{% url 'contact' %}">
+                     {% csrf_token %}
+                     <input type="text" class="mail_text" placeholder="Your Name" name="name" required>
+                     <input type="email" class="mail_text" placeholder="Your Email" name="email" required>
+                     <input type="tel" class="mail_text" placeholder="Phone Number" name="phone">
+                     <textarea class="massage-bt" placeholder="Tell us about your project" rows="5" name="message" required></textarea>
+                     <div class="send_bt">
+                        <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
+                     </div>
+                  </form>
+               </div>
+               <div class="col-md-6">
+                  <div class="contact_info">
+                     <h4 class="contact_taital">Get In Touch</h4>
+                     <div class="location_text">
+                        <ul>
+                           <li>
+                              <a href="#">
+                                 <i class="fa fa-map-marker" aria-hidden="true"></i>
+                                 <span class="padding_left_10">123 Design Street, Creative City</span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="tel:+011234567890">
+                                 <i class="fa fa-phone" aria-hidden="true"></i>
+                                 <span class="padding_left_10">+01 123 456 7890</span>
+                              </a>
+                           </li>
+                           <li>
+                              <a href="mailto:info@polkdesign.com">
+                                 <i class="fa fa-envelope" aria-hidden="true"></i>
+                                 <span class="padding_left_10">info@polkdesign.com</span>
+                              </a>
+                           </li>
+                        </ul>
+                     </div>
+
+                     <h4 class="contact_taital" style="margin-top: 30px;">Why Choose Us?</h4>
+                     <div class="why_choose">
+                        <p>✅ Professional Design Team</p>
+                        <p>✅ Customized Solutions</p>
+                        <p>✅ Quality Materials</p>
+                        <p>✅ On-Time Delivery</p>
+                        <p>✅ Affordable Pricing</p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- contact section end -->
+
+   <!-- footer section start -->
+   <div class="footer_section layout_padding">
+      <div class="container">
+         <div class="row">
+            <div class="col-lg-3 col-md-6">
+               <div class="footer_logo">
+                  <img src="{% static 'images/logo.png' %}" alt="Polk Logo">
+               </div>
+               <p class="footer_text">Professional interior design services for home, office and furniture design with years of experience and exceptional results.</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <h3 class="footer_taital">OUR SERVICES</h3>
+               <div class="footer_menu">
+                  <ul>
+                     <li><a href="{% url 'design' %}">Home Design</a></li>
+                     <li><a href="{% url 'design' %}">Office Design</a></li>
+                     <li><a href="{% url 'design' %}">Furniture Design</a></li>
+                     <li><a href="{% url 'design' %}">Space Planning</a></li>
+                     <li><a href="{% url 'design' %}">Consultation</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <h3 class="footer_taital">QUICK LINKS</h3>
+               <div class="footer_menu">
+                  <ul>
+                     <li><a href="{% url 'home' %}">Home</a></li>
+                     <li><a href="{% url 'about' %}">About</a></li>
+                     <li><a href="{% url 'design' %}">Portfolio</a></li>
+                     <li><a href="{% url 'news' %}">News</a></li>
+                     <li><a href="{% url 'contact' %}">Contact</a></li>
+                  </ul>
+               </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+               <h3 class="footer_taital">CONTACT INFO</h3>
+               <div class="location_text">
+                  <ul>
+                     <li>
+                        <a href="#">
+                           <i class="fa fa-map-marker" aria-hidden="true"></i>
+                           <span class="padding_left_10">123 Design Street, Creative City</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="tel:+011234567890">
+                           <i class="fa fa-phone" aria-hidden="true"></i>
+                           <span class="padding_left_10">+01 123 456 7890</span>
+                        </a>
+                     </li>
+                     <li>
+                        <a href="mailto:info@polkdesign.com">
+                           <i class="fa fa-envelope" aria-hidden="true"></i>
+                           <span class="padding_left_10">info@polkdesign.com</span>
+                        </a>
+                     </li>
+                  </ul>
+               </div>
+               <div class="social_icons">
+                  <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                  <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+               </div>
+            </div>
+         </div>
+         <div class="footer_section">
+            <div class="row">
+               <div class="col-md-12 text-center">
+                  <form class="input_bt" method="post" action="{% url 'subscribe' %}">
+                     {% csrf_token %}
+                     <input type="email" class="mail_bt" placeholder="Enter your email for updates" name="email" required>
+                     <button type="submit" class="subscribe_bt">Subscribe</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   <!-- footer section end -->
+
+   <!-- copyright section start -->
+   <div class="copyright_section">
+      <div class="container">
+         <p class="copyright_text">2024 All Rights Reserved. Design by <a href="{% url 'home' %}">Polk Interior Design</a></p>
+      </div>
+   </div>
+   <!-- copyright section end -->
+
+   <!-- Javascript files-->
+   <script src="{% static 'js/jquery.min.js' %}"></script>
+   <script src="{% static 'js/popper.min.js' %}"></script>
+   <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+   <script src="{% static 'js/plugin.js' %}"></script>
+   <!-- sidebar -->
+   <script src="{% static 'js/jquery.mCustomScrollbar.concat.min.js' %}"></script>
+   <script src="{% static 'js/custom.js' %}"></script>
+</body>
+</html>
